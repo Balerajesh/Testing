@@ -1,30 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflected XSS Lab</title>
+    <title>XSS Test</title>
 </head>
 <body>
-    <h1>Welcome to the Reflected XSS Lab</h1>
-    <p>This is a simple web page vulnerable to reflected XSS. Try injecting some script!</p>
-
-    <form id="xssForm">
-        <label for="inputText">Enter your name:</label>
-        <input type="text" id="inputText" name="name">
-        <button type="submit">Submit</button>
+    <h2>Submit Your Comment</h2>
+    <form action="submit.php" method="post">
+        <label for="comment">Comment:</label><br>
+        <input type="text" id="comment" name="comment"><br><br>
+        <input type="submit" value="Submit">
     </form>
-
-    <div id="output"></div>
-
-    <script>
-        const form = document.getElementById('xssForm');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
-
-            const name = document.getElementById('inputText').value;
-            document.getElementById('output').innerHTML = `<p>Hello, ${name}!</p>`;
-        });
-    </script>
 </body>
 </html>
